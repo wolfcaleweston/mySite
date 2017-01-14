@@ -1,0 +1,7 @@
+*.pyc
+*~
+__pycache__
+mySite2017env
+db.sqlite3
+/static
+.DS_Store
