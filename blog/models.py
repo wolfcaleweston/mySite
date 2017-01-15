@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 # Create your models here.
+# Always start a class name with an uppercase letter (django dudes taught me that)
 class Post(models.Model):
 	author = models.ForeignKey('auth.User')
 	title = models.CharField(max_length=200)
@@ -17,4 +18,3 @@ class Post(models.Model):
 
 	def __str__(self):
 		return self.title
-		
