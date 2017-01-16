@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+
+{% block hero %}
+<section class="jumbotron">
+    <div class="container">
+      <div class="row text-center">
+		{% for skill in skills %}
+		<div>
+		    <p>{{ skill.listText }}</p>
+		</div>
+		{% endfor %}
+		</div>
+	</div>
+</section>
+{% endblock %}
+
+{% block content %}
+  {% for post in posts %}
+  <div>
+    <p>published: {{ post.published_date }}</p>
+    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+    <p>{{ post.text|linebreaksbr }}</p>
+  </div>
+  {% endfor %}
+{% endblock %}

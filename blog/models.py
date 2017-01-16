@@ -18,3 +18,14 @@ class Post(models.Model):
 
 	def __str__(self):
 		return self.title
+
+class Skill(models.Model):
+	listText = models.TextField()
+	created_date = models.DateTimeField(
+		default=timezone.now)
+
+	def publish(self):
+		self.save()
+		
+	def __str__(self):
+		return self.listText
