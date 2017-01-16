@@ -1,46 +1,11 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Weston Wolfcale</title>
-  <meta charset="utf-8"/>
-  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-</head>
-<body>
-  <header class="container">
-    <div class="row">
-      <h1 class="col-sm-4">Weston Wolfcale</h1>
-      <nav class="col-sm-8 text-right">
-        <p>resume</p>
-        <p>projects</p>
-        <p>contact</p>
-      </nav>
-    </div>
-  </header>
-  <section class="jumbotron">
-    <div class="container">
-      <div class="row text-center">
-        <h2>Welcome!</h2>
-        <h3>I'm a developer and musician.</h3>
-      </div>
-    </div>
-  </section>
-  <section class="container">
-      {% for post in posts %}
-      <div class="row">
-        <p>published: {{ post.published_date }}</p>
-        <h2><a href="">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p>
-      </div>
-      {% endfor %}
-  </section>
-  <footer class="container">
-    <div class="row">
-      <p class="col-sm-4">&copy; 2017 Weston Wolfcale</p>
-    </div>
-  </footer>
-</body>
-</html>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  {% for post in posts %}
+  <div>
+    <p>published: {{ post.published_date }}</p>
+    <h2><a href="">{{ post.title }}</a></h2>
+    <p>{{ post.text|linebreaksbr }}</p>
+  </div>
+  {% endfor %}
+{% endblock %}
